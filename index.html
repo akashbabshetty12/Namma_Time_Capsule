@@ -1,145 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namma_Time_Capsule</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namma Time Capsule</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: #f5f5f0;
+    color: #333;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(120deg, #c45e10 0%, #8b3a0f 25%, #1a2a4a 65%, #0a0f2e 100%);
+    padding: 70px 40px 60px;
+    text-align: center;
+}
+
+.hero-logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    border: 3px solid #f0c08066;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #f0ece0;
+}
+
+.hero h1 span {
+    color: #f0c080;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #c8c0b0;
+    max-width: 520px;
+    margin: 20px auto;
+}
+
+/* BUTTONS */
+.hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-primary, .btn-outline {
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #f0c080;
+    color: #1a0a00;
+}
+
+.btn-outline {
+    border: 1px solid #f0c08066;
+    color: #f0c080;
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.stat {
+    padding: 28px;
+    text-align: center;
+    background: #fff;
+}
+
+.stat-num {
+    font-size: 32px;
+    color: #c45e10;
+}
+
+/* VIDEOS */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 200px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a0f2e;
+    color: #f0c080;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <img src="/static/logo.png" alt="Namma Time Capsule" class="hero-logo">
-        <h1>Namma_Time_Capsule<br><span>Documenting today for tomorrow.</span></h1>
-        <p>Everything you see here is recorded exactly as it exists —
-no edits, no music, no filters.
-Just real life, real sound, real time..</p>
-        <div class="hero-btns">
-            <a class="btn-primary" href="https://youtube.com/@namma_time_capsule?si=Gz8-aqamezRhAoCV">Watch on YouTube</a>
-            <a class="btn-outline" href="https://youtu.be/eWFbChdlIAk?si=FoJTXngvD_74Aftn">Explore Videos</a>
-        </div>
-    </header>
+<header class="hero">
+    <img src="logo.png" class="hero-logo">
+    <h1>Namma_Time_Capsule<br><span>Documenting today for tomorrow.</span></h1>
+    <p>Real life. No filters. Just moments captured as they are.</p>
 
-    <!-- STATS -->
-    <div class="stats">
-        <div class="stat">
-            <div class="stat-num">6+</div>
-            <div class="stat-label">Videos</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">24+</div>
-            <div class="stat-label">Subscribers</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">2+</div>
-            <div class="stat-label">Locations</div>
-        </div>
+    <div class="hero-btns">
+        <a class="btn-primary" href="https://youtube.com/@namma_time_capsule" target="_blank">Watch</a>
+        <a class="btn-outline" href="https://youtu.be/eWFbChdlIAk" target="_blank">Explore</a>
+    </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat">
+        <div class="stat-num" id="videos">0</div>
+        <div>Videos</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num" id="subs">0</div>
+        <div>Subscribers</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num" id="locations">0</div>
+        <div>Locations</div>
+    </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="video-grid">
+    <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/eWFbChdlIAk"></iframe>
     </div>
 
-    <!-- MISSION -->
-    <section class="mission">
-        <h2>Documenting the World As It Is</h2>
-        <p>This channel is a living archive of reality.
+    <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/MhVamFZypCI"></iframe>
+    </div>
 
-I don’t create content.
-I preserve moments.
+    <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/jOcj3luB8tQ"></iframe>
+    </div>
+</div>
 
-Everything you see here is recorded exactly as it exists —
-no edits, no music, no filters.
-Just real life, real sound, real time.
+<footer class="footer">
+    © 2026 Namma Time Capsule
+</footer>
 
-Ordinary days don’t feel important now…
-but one day they will be history.
+<script>
+// Simple animated counter
+function animateValue(id, start, end, duration) {
+    let range = end - start;
+    let current = start;
+    let increment = end > start ? 1 : -1;
+    let stepTime = Math.abs(Math.floor(duration / range));
 
-These videos are time capsules
-saved for the future —
-for those who may wonder how this world once felt.
+    let timer = setInterval(() => {
+        current += increment;
+        document.getElementById(id).innerText = current + "+";
+        if (current == end) clearInterval(timer);
+    }, stepTime);
+}
 
-Welcome to NAMMA_TIME_CAPSULE
-Proof that this moment once existed.</p>
-    </section>
-
-    <!-- VIDEOS -->
-    <section class="section" id="videos">
-        <div class="section-header">
-            <h2>Latest Videos</h2>
-            <span>Recent Docs</span>
-        </div>
-        <div class="video-grid">
-
-            <!-- Replace VIDEO_ID1 with your YouTube video ID -->
-            <div class="video-card">
-                <div class="video-thumb">
-                    <iframe src="https://www.youtube.com/embed/eWFbChdlIAk"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <div class="video-tag">1.</div>
-                    <div class="video-title">Unfiltered Time: Gulbarga University</div>
-                </div>
-            </div>
-
-            <!-- Replace VIDEO_ID2 with your YouTube video ID -->
-            <div class="video-card">
-                <div class="video-thumb">
-                    <iframe src="https://www.youtube.com/embed/MhVamFZypCI"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <div class="video-tag">2.</div>
-                    <div class="video-title">Morning Nature Ambience Park | Birds, Yoga, Calm Sounds</div>
-                </div>
-            </div>
-
-            <!-- Replace VIDEO_ID3 with your YouTube video ID -->
-            <div class="video-card">
-                <div class="video-thumb">
-                    <iframe src="https://www.youtube.com/embed/jOcj3luB8tQ"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <div class="video-tag">3.</div>
-                    <div class="video-title">Buddha Vihar Gulbarga | Experience the calm that surrounds the Buddha.</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about-section">
-        <div class="about-inner">
-            <div class="about-left">
-                <div class="about-avatar">NTC</div>
-                <div class="about-role">Namma_Time_Capsule</div>
-            </div>
-            <div class="about-right">
-                <h2>About the Channel</h2>
-                <p>Hi, I’m just someone who likes capturing places the way they really are—no filters, no rush. his is my small way of keeping those moments alive.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL LINKS -->
-    <section class="social-section">
-        <h2>Follow the Journey</h2>
-        <div class="social-links">
-            <a class="social-link" href="http://www.youtube.com/@Namma_Time_Capsule">
-                <div class="dot"></div> YouTube
-            </a>
-            <a class="social-link" href="https://www.instagram.com/namma_time_capsule?igsh=MWgxNzRhaDh3aXB1bA==">
-                <div class="dot"></div> Instagram
-            </a>
-        
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 Namma_Time_Capsule — All rights reserved</p>
-    </footer>
+// Run animation
+animateValue("videos", 0, 6, 800);
+animateValue("subs", 0, 24, 1000);
+animateValue("locations", 0, 2, 600);
+</script>
 
 </body>
 </html>
